@@ -5,6 +5,9 @@
 /[Bb]uilds/
 /Assets/AssetStoreTools*
 
+*/[Ll]ibrary/
+*/[Tt]emp/
+
 # Visual Studio 2015 cache directory
 /.vs/
 

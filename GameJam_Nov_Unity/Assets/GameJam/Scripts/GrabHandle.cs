@@ -14,6 +14,17 @@ namespace Valve.VR.InteractionSystem
 
 		private FixedJoint handJoint;
 
+		Vector3 lastPos;
+
+		public Vector3 vel = new Vector3(0.0f,0.0f,0.0f);
+
+		bool isActive = false;
+
+		void Awake()
+		{
+			lastPos = this.transform.position;
+		}
+
 		void CreateHandJoint()
 		{
 			handJoint = gameObject.AddComponent<FixedJoint> ();
@@ -25,36 +36,58 @@ namespace Valve.VR.InteractionSystem
 
 		private void HandHoverUpdate(Hand hand)
 		{
-			Debug.Log ("Hovering");
-			if (true || hand.gameObject == inside) 
+			UnityEngine.Debug.Log ("Hover");
+			if (hand.GetStandardInteractionButtonDown () || ((hand.controller != null) && hand.controller.GetPressDown (Valve.VR.EVRButtonId.k_EButton_Grip)))
 			{
-				if (hand.GetStandardInteractionButtonDown () || ((hand.controller != null) && hand.controller.GetPressDown (Valve.VR.EVRButtonId.k_EButton_Grip)))
+				if (hand.currentAttachedObject != gameObject)
 				{
-					if (hand.currentAttachedObject != gameObject)
-					{
-						//Orienting to hand
-						this.transform.position = hand.transform.position;
-						this.transform.rotation = Quaternion.Euler(grabOrientation);
+					UnityEngine.Debug.Log ("Attatch");
+					//Orienting to hand
+					this.transform.position = hand.transform.position;
+					this.transform.rotation = Quaternion.Euler(hand.transform.rotation.eulerAngles + grabOrientation);
 
-						//Locking for detatchment
-						hand.HoverLock (GetComponent<Interactable> ());
-						hand.AttachObject (gameObject, attatchmentFlags);
+					//Locking for detatchment
+					hand.HoverLock (GetComponent<Interactable>());
+					hand.AttachObject (gameObject, attatchmentFlags);
 
-						//Connecting to hand with Joint
-						//CreateHandJoint();
-						//handJoint.connectedBody = hand.GetComponent<Rigidbody>();
-					}
-					else
-					{
-						hand.DetachObject (gameObject);
+					//Used for velocity gathering
+					isActive = true;
 
-						hand.HoverUnlock (GetComponent<Interactable> ());
-
-						//Disconnecting handJoint
-						//Destroy(handJoint);
-					}
+					//Connecting to hand with Joint
+					//CreateHandJoint();
+					//handJoint.connectedBody = hand.GetComponent<Rigidbody>();
 				}
 			}
+			else if(hand.GetStandardInteractionButtonUp()|| ((hand.controller != null) && hand.controller.GetPressUp (Valve.VR.EVRButtonId.k_EButton_Grip)))
+			{
+				if (hand.currentAttachedObject == gameObject)
+				{
+					UnityEngine.Debug.Log ("Detatch");
+					hand.DetachObject (gameObject);
+
+					hand.HoverUnlock (GetComponent<Interactable> ());
+
+					isActive = false;
+
+					//Disconnecting handJoint
+					//Destroy(handJoint);
+				}
+			}
+		}
+
+		void FixedUpdate()
+		{
+			if (isActive)
+			{
+				Vector3 dist = this.transform.position - lastPos;
+				vel = dist / Time.deltaTime;
+				lastPos = this.transform.position;
+				//Debug.Log ("Fixed: " + vel);
+			}
+		}
+		public Vector3 GetVel()
+		{
+			return vel;
 		}
 
 		void OnTriggerEnter(Collider col)

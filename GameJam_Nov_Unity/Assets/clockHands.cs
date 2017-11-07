@@ -8,14 +8,15 @@ public class clockHands : MonoBehaviour {
     public GameObject minute;
     int hmultipl = 1;
     int mmultipl = 1;
-    float limith = Random.Range(500, 1500) / 1000;
-    float limitm = Random.Range(500, 1500) / 1000;
+    float limith;
+    float limitm;
     float countm = 0;
     float counth = 0;
 	// Use this for initialization
 	void Start () {
-		
-	}
+		limith = Random.Range(500, 1500) / 1000;
+        limitm = Random.Range(500, 1500) / 1000;
+    }
 	
 	// Update is called once per frame
 	void Update () {

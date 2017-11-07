@@ -19,8 +19,13 @@ public class WeaponParenting : MonoBehaviour {
 			i.transform.GetComponent<Collider> ().isTrigger = true;
 		}
 	}
-	public void UnParenting()
+	public void UnParenting(Rigidbody rbParent)
 	{
+		Vector3 vel = rbParent.gameObject.GetComponent
+			<Valve.VR.InteractionSystem.GrabHandle> ().GetVel ();
+
+		Debug.Log ("P: " + vel);
+
 		foreach (var i in objs) 
 		{
 			//i.GetComponent<Rigidbody> ().isKinematic = false;
@@ -28,6 +33,7 @@ public class WeaponParenting : MonoBehaviour {
 			i.transform.SetParent (transform);
 			i.transform.GetComponent<Rigidbody> ().interpolation = RigidbodyInterpolation.Interpolate;
 			i.transform.GetComponent<Collider> ().isTrigger = false;
+			i.transform.GetComponent<Rigidbody> ().velocity = vel;
 		}
 	}
 }

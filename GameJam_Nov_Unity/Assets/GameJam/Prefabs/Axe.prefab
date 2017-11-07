@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1189371458676518}
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 67.21, y: 0.511, z: 60.73}
+  m_LocalPosition: {x: 67.21, y: 0.37580153, z: 59.547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4414104056748750}
@@ -384,7 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f83ccc2c86e7042a194a69eac5ecbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabOrientation: {x: 0, y: 0, z: 0}
+  grabOrientation: {x: 65, y: 0, z: 0}
+  vel: {x: 0, y: 0, z: 0}
 --- !u!114 &114829929785215676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -396,19 +397,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 14
-  attachmentPoint: 
+  attachmentFlags: -2
+  attachmentPoint: Attach_ControllerTip
   catchSpeedThreshold: 0
-  restoreOriginalParent: 0
-  attachEaseIn: 1
+  restoreOriginalParent: 1
+  attachEaseIn: 0
   snapAttachEaseInCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -418,8 +419,8 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+    m_RotationOrder: 0
+  snapAttachEaseInTime: 0.2
   attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
@@ -442,10 +443,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114091423211373140}
         m_MethodName: UnParenting
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 54876373037317678}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

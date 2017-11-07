@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GameJam/Scenes/Graham Test.unity
-    guid: 7706b09c99132e84ab76b62d1e03db43
+    path: Assets/GameJam/Scenes/Test Scene.unity
+    guid: 23f99f4537f829d45906535bbf72f780

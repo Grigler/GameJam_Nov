@@ -48,11 +48,14 @@ public class EnemySpawn : MonoBehaviour {
 		{
 			if(!e.activeInHierarchy)
 			{
-				e.transform.position = transform.position;
-				e.SetActive (true);
-				spawned++;
-				timer = 0.0f;
-				return;
+               
+                e.transform.position = transform.position;
+                e.SetActive(true);
+                
+                spawned++;
+                timer = 0.0f;
+                return;
+               
 			}
 		}
 	}

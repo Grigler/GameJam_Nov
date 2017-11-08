@@ -22,12 +22,19 @@ public class PortalLookCheck : MonoBehaviour {
             if (hit.collider.gameObject.tag == "Portal")
             {
                 stareTime += Time.deltaTime;
+				CameraWarp.singleton.portal = hit.collider.gameObject;
             }
             else
             {
                 stareTime = 0;
+				CameraWarp.singleton.portal = null;
             }
         }
+		else
+		{
+			stareTime = 0;
+			CameraWarp.singleton.portal = null;
+		}
 
         if(stareTime > 3)
         {

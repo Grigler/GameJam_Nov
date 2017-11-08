@@ -19,13 +19,14 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
-        chaseMin = 0.7f;
+        chaseMin = 2.5f;
         anim = GetComponent<Animator>();
         timer = 0;
         agent.destination = new Vector3(target.transform.position.x, 1, target.transform.position.z);
         rand = Random.Range(0, 100);
 
 		ResetVals ();
+
     }
 
 	void ResetVals()
@@ -42,9 +43,13 @@ public class EnemyController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {       
-
+		if (!target.activeInHierarchy)
+			target = GameObject.Find ("FallbackHand");
+		
 		if(isDying)
 		{
+			isDying = true;
+			anim.SetBool ("isDying", isDying);
 			//Wait for animation to finish then kill
 			if(anim.GetCurrentAnimatorStateInfo(0).IsName("KillMe"))
 			{
@@ -66,19 +71,18 @@ public class EnemyController : MonoBehaviour {
     void Combat()
     {
 		anim.SetTrigger ("StartAttack");
+
         
     }
     void Chase()
     {
-        agent.destination = new Vector3(target.transform.position.x, 1, target.transform.position.z); 
-        
+		agent.SetDestination(new Vector3(target.transform.position.x, 1, target.transform.position.z)); 
+
 		anim.SetTrigger ("StopAttack");
     }
 
     public void Kill()
     {
 		anim.SetTrigger ("Kill");
-		isDying = true;
-		anim.SetBool ("isDying", isDying);
     }
 }

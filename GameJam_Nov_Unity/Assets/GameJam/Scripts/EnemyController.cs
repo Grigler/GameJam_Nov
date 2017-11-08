@@ -14,22 +14,30 @@ public class EnemyController : MonoBehaviour {
     NavMeshAgent agent;
     int rand;
 
-	bool isDying;
+	bool isDying = false;
 
-	// Use this for initialization
-	void Start () {
-        agent = GetComponent<NavMeshAgent>();
-        chaseMin = 2.5f;
-        anim = GetComponent<Animator>();
+    // Use this for initialization
+    void Awake () {
+        if(agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+            chaseMin = 2.5f;
+        }
+        if(anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
+
         timer = 0;
         agent.destination = new Vector3(target.transform.position.x, 1, target.transform.position.z);
         rand = Random.Range(0, 100);
 
-		ResetVals ();
+		//ResetVals ();
 
     }
 
-	void ResetVals()
+
+    void ResetVals()
 	{
 		bool isRun = Random.Range (0, 1000.0f) <= 500;
 		anim.SetBool("isRun", isRun);
@@ -39,35 +47,42 @@ public class EnemyController : MonoBehaviour {
 			agent.speed = 2;
 		isDying = false;
 		anim.SetBool ("isDying", isDying);
+        //anim.StopPlayback();
 	}
 
 	// Update is called once per frame
 	void Update () {       
 		if (!target.activeInHierarchy)
 			target = GameObject.Find ("FallbackHand");
-		
-		if(isDying)
-		{
-			isDying = true;
-			anim.SetBool ("isDying", isDying);
-			//Wait for animation to finish then kill
-			if(anim.GetCurrentAnimatorStateInfo(0).IsName("KillMe"))
-			{
-				gameObject.SetActive (false);
-				ResetVals ();
-			}
-		}
-        else if (Vector3.SqrMagnitude(target.transform.position - transform.position) <= (chaseMin*chaseMin))
+		if(!isDying)
         {
-            //Combat
-            Combat();
-        }
-        else
-        {
-            //Chase
-            Chase();
+            if (Vector3.SqrMagnitude(target.transform.position - transform.position) <= (chaseMin * chaseMin))
+            {
+                //Combat
+                Combat();
+            }
+            else
+            {
+                //Chase
+                Chase();
+            }
         }
 	}
+
+    private void LateUpdate()
+    {
+       if(isDying || anim.GetCurrentAnimatorStateInfo(0).IsName("Die"))
+        {
+            isDying = true;
+            anim.SetBool("isDying", true);
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName("KillMe"))
+            {
+                ResetVals();
+                gameObject.SetActive(false);
+                
+            }
+        }
+    }
     void Combat()
     {
 		anim.SetTrigger ("StartAttack");
@@ -84,5 +99,6 @@ public class EnemyController : MonoBehaviour {
     public void Kill()
     {
 		anim.SetTrigger ("Kill");
+        //isDying = true;
     }
 }

@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour {    
     public GameObject target;
     public float chaseMin;
     bool isChasing;
     Animator anim;
     float timer;
+    NavMeshAgent agent;    
+    
 	// Use this for initialization
 	void Start () {
-        isChasing = true;
+        chaseMin = 0.7f;
         anim = GetComponent<Animator>();
         timer = 0;
+        transform.position += new Vector3(Random.Range(0, 1000)/1000, 0, Random.Range(0, 1000) / 1000);
+        agent.destination = target.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -53,14 +58,18 @@ public class EnemyController : MonoBehaviour {
     void Chase()
     {
         int rand = Random.Range(0, 1);
-        //CHANGE SPEED DEPENDING ON RUNNING OR WALKING
+        
         if (rand == 0)
         {
+            agent.speed = 4;
             anim.Play("locomotion");
         }
         if (rand == 1)
         {
+            agent.speed = 10;
             anim.Play("run");
         }
+
+        
     }
 }

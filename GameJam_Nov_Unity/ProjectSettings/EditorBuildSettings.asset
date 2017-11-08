@@ -8,3 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameJam/Scenes/Test Scene.unity
     guid: 23f99f4537f829d45906535bbf72f780
+  - enabled: 0
+    path: Assets/GameJam/Scenes/ShaderTestSpace.unity
+    guid: edbc865ec2482e7409fe1ed08408e4d6
+  - enabled: 0
+    path: Assets/GameJam/Scenes/Level.unity
+    guid: e6e55fe61cf74be418b8d27eea2f8d77

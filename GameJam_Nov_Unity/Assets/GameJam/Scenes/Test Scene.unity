@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e992b573f1d9f4b95b3d72e239928e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camruh: {fileID: 178925778}
+  camruh: {fileID: 1860095822}
   destination: {fileID: 721297953}
   stareTime: 0
 --- !u!1 &786282321
@@ -2692,10 +2692,6 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 774989896}
-    - target: {fileID: 1479499909395944, guid: 2bc0284ca6eb2b240bf58e530f615240, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bc0284ca6eb2b240bf58e530f615240, type: 2}
   m_IsPrefabParent: 0
@@ -2856,6 +2852,10 @@ GameObject:
   m_PrefabParentObject: {fileID: 1479499909395944, guid: 2bc0284ca6eb2b240bf58e530f615240,
     type: 2}
   m_PrefabInternal: {fileID: 622359760}
+--- !u!1 &1860095822 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
+  m_PrefabInternal: {fileID: 236767267}
 --- !u!1001 &1985669663
 Prefab:
   m_ObjectHideFlags: 0

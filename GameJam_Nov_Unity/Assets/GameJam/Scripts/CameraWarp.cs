@@ -35,5 +35,7 @@ public class CameraWarp : MonoBehaviour {
 
 		mat.SetVector ("_portalCenter", screenPos);
 		Graphics.Blit (source, destination, mat);
+
+		GUI.Label (Rect.MinMaxRect (0, 0, 500, 500), "Working");
 	}
 }

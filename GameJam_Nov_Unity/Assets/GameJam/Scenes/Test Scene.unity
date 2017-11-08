@@ -1282,6 +1282,10 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1030539635 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 121078, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
+  m_PrefabInternal: {fileID: 236767267}
 --- !u!1001 &1066290493
 Prefab:
   m_ObjectHideFlags: 0
@@ -2691,7 +2695,7 @@ Prefab:
         type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 774989896}
+      objectReference: {fileID: 1030539635}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bc0284ca6eb2b240bf58e530f615240, type: 2}
   m_IsPrefabParent: 0

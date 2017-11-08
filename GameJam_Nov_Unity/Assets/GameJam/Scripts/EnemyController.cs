@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour {
 		else
 			agent.speed = 2;
 		isDying = false;
+		anim.SetBool ("isDying", isDying);
 	}
 
 	// Update is called once per frame
@@ -78,5 +79,6 @@ public class EnemyController : MonoBehaviour {
     {
 		anim.SetTrigger ("Kill");
 		isDying = true;
+		anim.SetBool ("isDying", isDying);
     }
 }

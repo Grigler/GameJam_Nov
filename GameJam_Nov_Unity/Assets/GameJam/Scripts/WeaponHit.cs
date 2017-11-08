@@ -51,4 +51,15 @@ public class WeaponHit : MonoBehaviour
                 Debug.Log("Hit it harder, faggot");
         }
     }
+
+	void OnCollisionEnter(Collision col)
+	{
+		if(vel.sqrMagnitude >= velThreshold.sqrMagnitude)
+		{
+			if(col.gameObject.tag == "Enemy")
+			{
+				col.gameObject.SendMessage("Kill");	
+			}
+		}
+	}
 }

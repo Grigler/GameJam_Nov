@@ -17,7 +17,7 @@ public class WeaponHit : MonoBehaviour
 	{
 		if(other.CompareTag("Enemy"))
 		{
-			if (rb.velocity >= velThreshold)
+			if (rb.velocity.sqrMagnitude >= velThreshold.sqrMagnitude)
 				other.SendMessage ("Kill");
 			else
 				Debug.Log ("Hit it harder, faggot");

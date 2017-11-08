@@ -8,19 +8,47 @@ public class WeaponHit : MonoBehaviour
 
 	public Vector3 velThreshold;
 
+    public Vector3 lastPos;
+    public Vector3 vel;
+
 	void Awake()
 	{
 		rb = gameObject.GetComponent<Rigidbody> ();
+        lastPos = this.transform.position;
 	}
 
-	void OnTriggerEnter(Collider other)
+    private void FixedUpdate()
+    {
+        Vector3 dif = this.transform.position - lastPos;
+        vel = dif / Time.deltaTime;
+        lastPos = this.transform.position;
+    }
+
+    void OnTriggerEnter(Collider other)
 	{
-		if(other.CompareTag("Enemy"))
+        Debug.Log("Generic trigger enter");
+		if(other.gameObject.tag == "Enemy")
 		{
-			if (rb.velocity.sqrMagnitude >= velThreshold.sqrMagnitude)
-				other.SendMessage ("Kill");
+			if (vel.sqrMagnitude >= velThreshold.sqrMagnitude)
+            {
+                Debug.Log("KILILIKILIKIJFLKDHFLKJHDS");
+                other.gameObject.SendMessage("Kill");
+            }
 			else
 				Debug.Log ("Hit it harder, faggot");
 		}
 	}
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("Generic trigger enter");
+        if (other.gameObject.tag == "Enemy")
+        {
+            if (vel.sqrMagnitude >= velThreshold.sqrMagnitude)
+            {
+                other.gameObject.SendMessage("Kill");
+            }
+            else
+                Debug.Log("Hit it harder, faggot");
+        }
+    }
 }

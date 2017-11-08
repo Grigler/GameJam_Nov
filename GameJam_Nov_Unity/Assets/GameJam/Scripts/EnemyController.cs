@@ -9,21 +9,23 @@ public class EnemyController : MonoBehaviour {
     bool isChasing;
     Animator anim;
     float timer;
-    NavMeshAgent agent;    
+    NavMeshAgent agent;
+    int rand;
     
 	// Use this for initialization
 	void Start () {
+        agent = GetComponent<NavMeshAgent>();
         chaseMin = 0.7f;
         anim = GetComponent<Animator>();
         timer = 0;
-        transform.position += new Vector3(Random.Range(0, 1000)/1000, 0, Random.Range(0, 1000) / 1000);
-        agent.destination = target.transform.position;
-	}
+        agent.destination = new Vector3(target.transform.position.x, 1, target.transform.position.z);
+        rand = Random.Range(0, 100);
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {       
 
-		if (Vector3.SqrMagnitude(target.transform.position - transform.position) <= (chaseMin*chaseMin))
+        if (Vector3.SqrMagnitude(target.transform.position - transform.position) <= (chaseMin*chaseMin))
         {
             //Combat
             Combat();
@@ -57,19 +59,35 @@ public class EnemyController : MonoBehaviour {
     }
     void Chase()
     {
-        int rand = Random.Range(0, 1);
-        
-        if (rand == 0)
-        {
-            agent.speed = 4;
-            anim.Play("locomotion");
-        }
-        if (rand == 1)
-        {
-            agent.speed = 10;
-            anim.Play("run");
-        }
+        agent.destination = new Vector3(target.transform.position.x, 1, target.transform.position.z); 
 
         
+        
+        if (rand%2 == 0)
+        {
+            agent.speed = 4;
+            if (true /*!anim.GetCurrentAnimatorStateInfo(0).IsName("locomotion")*/)
+            {
+               // anim.Play("locomotion");
+                anim.SetTrigger("Start Locomotion");
+            }
+        }
+        /*if (rand%2 == 1)
+        {
+            agent.speed = 10;
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("run"))
+            {
+                anim.SetTrigger("Start Run");
+            }
+        }*/
+
+        
+    }
+
+    public void Kill()
+    {
+        Debug.Log("dicks");
+        gameObject.SetActive(false);
+
     }
 }

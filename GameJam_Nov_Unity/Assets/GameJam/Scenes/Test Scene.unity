@@ -97,7 +97,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 25.2
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -107,7 +107,7 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 77496e61cc18786449feb0533359cc93, type: 2}
 --- !u!1 &178925778 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 110716, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 634589562}
   - component: {fileID: 634589561}
   - component: {fileID: 634589560}
+  - component: {fileID: 634589565}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -262,12 +263,33 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 634589559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.74, y: 1.017, z: 60.19}
+  m_LocalPosition: {x: 68.482, y: 0.964, z: 60.47}
   m_LocalScale: {x: 1, y: 1.9118264, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &634589565
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634589559}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &677449915
 Prefab:
   m_ObjectHideFlags: 0
@@ -474,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e992b573f1d9f4b95b3d72e239928e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camruh: {fileID: 178925778}
+  camruh: {fileID: 1977796776}
   destination: {fileID: 721297953}
   stareTime: 0
 --- !u!1001 &1279674119
@@ -819,6 +841,10 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 43.153004, y: -30.000002, z: 0}
+--- !u!1 &1977796776 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
+  m_PrefabInternal: {fileID: 236767267}
 --- !u!1001 &2085735557
 Prefab:
   m_ObjectHideFlags: 0

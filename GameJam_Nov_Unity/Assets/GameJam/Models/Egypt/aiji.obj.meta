@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: 1102a915bc0f1af4ca22ca1d19a1611c
+timeCreated: 1510091983
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Anubis
+    100004: Bast
+    100006: Falcon
+    100008: Horus
+    100010: Human
+    100012: Jackal
+    100014: Jackal_MeshPart0
+    100016: Jackal_MeshPart1
+    100018: MUMMY
+    400000: //RootNode
+    400002: Anubis
+    400004: Bast
+    400006: Falcon
+    400008: Horus
+    400010: Human
+    400012: Jackal
+    400014: Jackal_MeshPart0
+    400016: Jackal_MeshPart1
+    400018: MUMMY
+    2300000: Anubis
+    2300002: Bast
+    2300004: Falcon
+    2300006: Horus
+    2300008: Human
+    2300010: Jackal_MeshPart0
+    2300012: Jackal_MeshPart1
+    2300014: MUMMY
+    3300000: Anubis
+    3300002: Bast
+    3300004: Falcon
+    3300006: Horus
+    3300008: Human
+    3300010: Jackal_MeshPart0
+    3300012: Jackal_MeshPart1
+    3300014: MUMMY
+    4300000: Anubis
+    4300002: Bast
+    4300004: Falcon
+    4300006: Horus
+    4300008: Human
+    4300010: Jackal_MeshPart0
+    4300012: Jackal_MeshPart1
+    4300014: MUMMY
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.025
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

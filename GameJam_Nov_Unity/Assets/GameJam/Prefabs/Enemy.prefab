@@ -174,13 +174,14 @@ GameObject:
   - component: {fileID: 195881800697178698}
   - component: {fileID: 65889705584947446}
   - component: {fileID: 208678746972378886}
+  - component: {fileID: 114055756999723060}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1532887230913676
 GameObject:
   m_ObjectHideFlags: 1
@@ -713,7 +714,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479499909395944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.452595, y: 1.012, z: 76.73959}
+  m_LocalPosition: {x: 1050.9906, y: 1.178, z: 28.228155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4007620375041272}
@@ -901,6 +902,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114055756999723060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1479499909395944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b9c4d2db7c7cd47a8045f1454185b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114767830760315978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -927,7 +939,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d2401011364a7e9429bb8eb732af3113, type: 2}
+  - {fileID: 2100000, guid: e9cd636866ccfac4091ff471ce675b24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -20,6 +20,10 @@ public class EnemySpawn : MonoBehaviour {
 		{
 			GameObject e = GameObject.Instantiate (enemyPrefab) as GameObject;
 			e.GetComponent<EnemyController> ().target = GameObject.Find ("Hand1");
+			if(e.GetComponent<EnemyController>().target == null)
+			{
+				e.GetComponent<EnemyController> ().target = GameObject.Find ("FallbackHand");
+			}
 			pool.Add (e);
 			e.SetActive (false);
 		}
@@ -40,10 +44,15 @@ public class EnemySpawn : MonoBehaviour {
 
 	void Spawn()
 	{
-		foreach (var e in pool) {
+		foreach (var e in pool) 
+		{
 			if(!e.activeInHierarchy)
 			{
-				
+				e.transform.position = transform.position;
+				e.SetActive (true);
+				spawned++;
+				timer = 0.0f;
+				return;
 			}
 		}
 	}
